@@ -1,4 +1,14 @@
 //variables
+var moveDistance = 5;
+function updateMoveDistance() {
+  if (window.innerWidth <= 1400) {
+    moveDistance = 7; // 8vw for mobile devices
+  } else {
+    moveDistance = 5; // 5vw for desktops
+  }
+}
+// Call this function initially and on window resize
+updateMoveDistance();
 var ObstacleScored = false;
 var points = 0;
 var HighestScore = 0;
@@ -25,11 +35,13 @@ var game_over_text2 = document.getElementById("game_over_text2");
 html.addEventListener("keydown", keypressed);
 html.addEventListener("click", clicked);
 gamecontainer.addEventListener("touchstart", (e) => {
+  e.preventDefault();
   const touch = e.touches[0];
   startX = touch.clientX;
   startY = touch.clientY;
 });
 gamecontainer.addEventListener("touchend", (e) => {
+  e.preventDefault();
   const touch = e.changedTouches[0];
   const endX = touch.clientX;
   const endY = touch.clientY;
@@ -182,7 +194,7 @@ function handleSwipe(startX, startY, endX, endY) {
 }
 
 function move_right() {
-  dino.style.left = DinoRect.left + (5 / 100) * ViewportWidth + "px";
+  dino.style.left = DinoRect.left + (moveDistance / 100) * ViewportWidth + "px";
 }
 
 function jump() {
@@ -194,7 +206,7 @@ function jump() {
 }
 
 function move_left() {
-  dino.style.left = DinoRect.left - (5 / 100) * ViewportWidth + "px";
+  dino.style.left = DinoRect.left - (moveDistance / 100) * ViewportWidth + "px";
 }
 
 function move_down() {
