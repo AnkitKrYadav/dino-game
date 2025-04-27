@@ -34,7 +34,6 @@ body {
   height: 34vh;
   position: absolute;
   left: 10.6vw;
-
 }
 
 #intro1 {
@@ -142,11 +141,6 @@ body {
   visibility: hidden;
 }
 
-#hmm {
-  position: absolute;
-  left: 4.46vw;
-}
-
 /* game over screen */
 #gameover {
   color: black;
@@ -183,7 +177,7 @@ body {
 }
 
 .dino_jump_ani {
-  animation: dino_jump_ani 1s linear;
+  animation: dino_jump_ani 0.8s linear;
 }
 
 @keyframes obstacle_animation {

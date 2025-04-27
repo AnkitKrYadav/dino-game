@@ -6,6 +6,7 @@ var game_over_music = new Audio("gameover.mp3");
 var music = new Audio("music.mp3");
 var DinoRect;
 var GameRunning = false;
+var ViewportWidth = window.innerWidth;
 // Variables to track swipe start and end positions
 let startX = 0;
 let startY = 0;
@@ -19,11 +20,6 @@ const html = document.getElementById("html");
 var gamecontainer = document.getElementById("gamecontainer");
 var gameover = document.getElementById("gameover");
 var game_over_text2 = document.getElementById("game_over_text2");
-var hmm = parseFloat(
-  window
-    .getComputedStyle(document.getElementById("hmm"), null)
-    .getPropertyValue("left")
-);
 
 //EventListeners
 html.addEventListener("keydown", keypressed);
@@ -88,7 +84,7 @@ setInterval(() => {
     dinoHitbox.bottom > obstacleHitbox.top;
 
   const ObstaclePassed = DinoRect.left > ObstacleRect.right;
-  const ObstacleBeforeScreen = ObstacleRect.left > window.innerWidth;
+  const ObstacleBeforeScreen = ObstacleRect.left > ViewportWidth;
 
   //Collided
   if (isColliding) {
@@ -160,8 +156,8 @@ function handleSwipe(startX, startY, endX, endY) {
   const diffY = endY - startY;
 
   // Calculate responsive thresholds based on screen dimensions
-  const thresholdX = window.innerWidth * 0.1; // 10% of screen width
-  const thresholdY = window.innerHeight * 0.1; // 10% of screen height
+  const thresholdX = ViewportWidth * 0.05; // 5% of screen width
+  const thresholdY = window.innerHeight * 0.05; // 5% of screen height
 
   // Determine if the swipe is horizontal or vertical
   if (Math.abs(diffX) > Math.abs(diffY)) {
@@ -186,7 +182,7 @@ function handleSwipe(startX, startY, endX, endY) {
 }
 
 function move_right() {
-  dino.style.left = DinoRect.left + hmm + "px";
+  dino.style.left = DinoRect.left + (5 / 100) * ViewportWidth + "px";
 }
 
 function jump() {
@@ -198,7 +194,7 @@ function jump() {
 }
 
 function move_left() {
-  dino.style.left = DinoRect.left - hmm + "px";
+  dino.style.left = DinoRect.left - (5 / 100) * ViewportWidth + "px";
 }
 
 function move_down() {
