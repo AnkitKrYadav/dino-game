@@ -1,0 +1,231 @@
+/* 
+Uses 2 animation only, dino jump and obstacle linear moving animation 
+assigned to new class which gets added to respective character id using js when needed 
+1vw=22.066 px, ani from -15vvw to give player reaction time
+while in that time speed increased and scored var flag changed
+
+*/
+
+/* General Styles */
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+
+#gamecontainer {
+  margin: 0%;
+  padding: 0%;
+  background-image: url("bg.png");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  height: 100vh;
+  width: 100vw;
+  opacity: 1;
+}
+
+
+/* Intro Screen */
+#intro {
+  width: 77vw;
+  height: 34vh;
+  position: absolute;
+  left: 10.6vw;
+
+}
+
+#intro1 {
+  font-size: 5.77vw;
+  position: relative;
+  left: 0vw;
+  top: 4.5vh;
+  color: mintcream;
+  background-color: dodgerblue;
+  border-radius: 4vw;
+  padding-left: 1.3vw;
+  padding-right: 0vw;
+  border: 0.12vw solid #243c33;
+}
+
+#intro2 {
+  font-size: 4.9vw;
+  position: relative;
+  left: 19.5vw;
+  top: 4.2vh;
+  color: oldlace;
+  border: 3.9px solid black;
+  background: dodgerblue;
+  border-bottom-left-radius: 1vw;
+  border-bottom-right-radius: 1vw;
+  padding: 0.3vw;
+  padding-right: 0.57vw;
+  width: 37vw;
+  padding-left: 0.73vw;
+  border-top-width: 3.5px;
+  border-top-color: turquoise;
+}
+
+/* Game Characters */
+#dino {
+  position: absolute;
+  bottom: 0vh;
+  left: -1vw;
+  background-image: url("dino.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 22vw;
+  height: 25vh;
+}
+
+#obstacle {
+  position: absolute;
+  bottom: 0vh;
+  right: 0vw;
+  background-image: url("dragon.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 11vw;
+  height: 19vh;
+}
+
+
+/* Score and High Score */
+#score {
+  font-size: 2.5vw;
+  border: 0.06vw solid black;
+  border-radius: 0.41vw;
+  background-color: mediumspringgreen;
+  margin: 4vh 3.2vw;
+  padding-left: 0.6vw;
+  padding-right: 0.8vw;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  display: inline;
+  position: absolute;
+  top: 0vh;
+  visibility: hidden;
+  z-index: 1;
+}
+
+#heighest_score {
+  position: absolute;
+  font-size: 2.5vw;
+  border: 0.06vw solid black;
+  border-radius: 0.41vw;
+  background-color: mediumspringgreen;
+  margin: 4vh 3.2vw;
+  padding-left: 0.6vw;
+  padding-right: 0.8vw;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  display: inline;
+  top: 0vh;
+  left: 20vw;
+  visibility: hidden;
+  z-index: 1;
+}
+
+#cool {
+  position: absolute;
+  top: 7vh;
+  right: 15.7vw;
+  background-size: cover;
+  width: 11vw;
+  height: 10vh;
+  color: red;
+  font-weight: bold;
+  padding-left: 1vw;
+  font-size: 2vw;
+  visibility: hidden;
+}
+
+#hmm {
+  position: absolute;
+  left: 4.46vw;
+}
+
+/* game over screen */
+#gameover {
+  color: black;
+  position: absolute;
+  top: 6.5vh;
+  left: 12.6vw;
+  border: 0.5vw solid red;
+  padding-left: 12vw;
+  padding-top: 4.5vh;
+  background-color: powderblue;
+  visibility: hidden;
+  height: 72vh;
+  width: 62vw;
+}
+
+#game_over_text1 {
+  position: relative;
+  font-size: 9.6vw;
+}
+
+#game_over_text2 {
+  font-size: 4.74vw;
+  color: black;
+  position: relative;
+  top: 1.5vh;
+  left: 4.5vw;
+  visibility: hidden;
+}
+
+
+/* Animations */
+.obstacle_animation {
+  animation: obstacle_animation 3.5s linear infinite;
+}
+
+.dino_jump_ani {
+  animation: dino_jump_ani 1s linear;
+}
+
+@keyframes obstacle_animation {
+  0% {
+    right: -15vw;
+
+  }
+
+  100% {
+    right: 105vw;
+  }
+}
+
+@keyframes dino_jump_ani {
+  0% {
+    bottom: 0vh;
+  }
+
+  50% {
+    bottom: 50vh;
+  }
+
+  100% {
+
+    bottom: 0vh;
+  }
+}
+
+
+
+/* The following code is commented out as it is not used in the current implementation 
+
+.dino_right_animation {
+  animation: dino_right_animation 0.3s linear 1;
+}
+
+ @keyframes dino_right_animation {
+  0% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(4.46vw);
+  }
+}*/
